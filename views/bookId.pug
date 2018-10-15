@@ -1,0 +1,129 @@
+extends layout
+block title
+    | Book
+block content
+    include ./header
+    div(class="content")
+        aside(class="modal" id="modalDeleteBook")
+            header
+                h3 Удаление книги
+            section
+                form(id="delete_book", action="#", method="post")
+                    p Вы уверены?
+            footer
+                div(class="buttons")
+                    div(class="cancel")
+                        a(href='#' class="buttons" id="___cancel") Нет
+                    div(class="save")
+                        a(href='#' class="buttons" id="modalDelete" form="delete_book") Да
+        aside(class="modal" id="modalChangeBook")
+            header
+                h3 Изменить книгу
+            section
+                form(id="change_book", action="#", method="post")
+                    table
+                        tr
+                            td Название:
+                            td
+                                input(type="text" id="changeBookName")
+                        tr
+                            td Автор:
+                            td
+                                input(id="changeBookAuthor" type="text" )
+                        tr
+                            td Год выпуска:
+                            td
+                                input(id="changeBookYear" type="text")
+            footer
+                div(class="buttons")
+                    div(class="cancel")
+                        a(href='#' class="buttons" id="__cancel") Отмена
+                    div(class="save")
+                        a(href='#' class="buttons" id="__save" form="change_book") Сохранить
+        aside(class="modal" id="modalNewWho")
+            header
+                h3 Взять книгу
+            section
+                form(id="new_reader", action="#", method="post")
+                    table
+                        tr
+                            td Фамилия:
+                            td
+                                input(type="text" id="newWho")
+                        tr
+                            td Паспорт:
+                            td
+                                input(id="newPassport" type="text" )
+                        tr
+                            td Срок до:
+                            td
+                                input(id="newDate" type="date" min="2018-10-01")
+
+            footer
+                div(class="buttons")
+                    div(class="cancel")
+                        a(href='#' class="buttons" id="_cancel") Отмена
+                    div(class="save")
+                        a(href='#' class="buttons" id="saveWho" form="new_reader") Сохранить
+        div(class="cardBook")
+            h3(align="center") Карточка книги # #{book["id"]}
+            table(class="table_card")
+                tr
+                    td Название:
+                    td #{book["name"]}
+                tr
+                    td Автор:
+                    td #{book["author"]}
+                tr
+                    td Год издания:
+                    td #{book["date"]}
+                tr
+                    if (book["in_stock"] == true)
+                        td Имеется в наличии?
+                        td Да
+                    else
+                        tr
+                            td Взял:
+                            td #{book.master["name"]}
+                                        a(href='#modalWho' class ="whoButton" id="who") ?
+                            -  data = new Date(book["return_date"])
+                            -  data_day = data.getDate()
+                            -  data_month = data.getMonth() + 1
+                            -  data_year = data.getFullYear()
+                        tr
+                            td Дата возврата:
+                            td #{data_day}-#{data_month}-#{data_year}
+            if (book["in_stock"] == true)
+                div(class="buttons")
+                    div(class="deleted")
+                        a(href='#modalDeleteBook' class="buttons" id="deleteButton" form="delete_book") Удалить
+                    div(class="take")
+                        a(href='#modalNewWho' class="buttons" id="take" form="new_reader") Взять
+                    div(class="change")
+                        a(href='#modalChangeBook' class="buttons" id="change" form="change_book") Изменить
+            else
+                div(class="buttons")
+                    div(class="deleted")
+                        a(href='#modalDeleteBook' class="buttons" id="deleteButton" form="delete_book") Удалить
+                    div(class="give")
+                        a(href='#' class="buttons" id="giveBookButton") Вернуть
+                    div(class="change")
+                        a(href='#modalChangeBook' class="buttons" id="change" form="change_book") Изменить
+                aside(class="modal" id="modalWho")
+                    header
+                        h3 Информация о читателе
+                    section
+                        table(class="table_card")
+                            tr
+                                td Фамилия
+                                td #{book.master["name"]}
+                            tr
+                                td Паспорт
+                                td #{book.master["passport"]}
+                    footer
+                        div(class="buttons")
+                            div(class="add")
+                                a(href='#' class="buttons") ОК
+    script
+        include ../public/javascripts/bookId.js
+    include ./footer

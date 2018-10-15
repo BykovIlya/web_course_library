@@ -1,0 +1,65 @@
+[
+  {
+    "id": 0,
+    "master": null,
+    "name": "Одиссея",
+    "author": "Гомер",
+    "date": "1987",
+    "in_stock": false,
+    "return_date":"2019-04-23T00:00:00.511Z"
+  },
+  {
+    "id": 1,
+    "master": null,
+    "name": "Война и мир",
+    "author": "Толстой Л.Н.",
+    "date": "1954",
+    "in_stock": true,
+    "return_date":null
+  },
+  {
+    "id": 2,
+    "master": null,
+    "name": "Преступление и наказание",
+    "author": "Достоевский Ф.М.",
+    "date": "1999",
+    "in_stock": false,
+    "return_date":"2018-06-21T00:00:00.511Z"
+  },
+  {
+    "id": 3,
+    "master": null,
+    "name": "Гарри Поттер 1",
+    "author": "Роулинг Д.",
+    "date": "2001",
+    "in_stock": true,
+    "return_date":null
+  },
+  {
+    "id": 4,
+    "master": null,
+    "name": "Повести Белкина",
+    "author": "Пушкин А.С.",
+    "date": "1966",
+    "in_stock": false,
+    "return_date":"2018-10-22T00:00:00.511Z"
+  },
+  {
+    "id": 5,
+    "master": null,
+    "name": "Дядя Степа",
+    "author": "Михалкова С.С.",
+    "date": "1987",
+    "in_stock": true,
+    "return_date":null
+  },
+  {
+    "id": 6,
+    "master": null,
+    "name": "Тихий Дон",
+    "author": "Шолохов М.А.",
+    "date": "1990",
+    "in_stock": true,
+    "return_date":null
+  }
+]

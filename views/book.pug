@@ -1,0 +1,16 @@
+extends layout
+block title
+    | Book
+block content
+    include ./header
+    div(class="content")
+        div(class="menuDropDown")
+            div(class="title" onclick="f()") Выбери книгу
+                div(class="arrow")
+            div(class="dropdown")
+                for book in books
+                    option(class="moption")
+                        a(class="menuDropDown" href="/book/" + book["id"])=book["name"]
+        script
+            include ../public/javascripts/book.js
+    include ./footer

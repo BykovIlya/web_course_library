@@ -1,0 +1,321 @@
+* {
+  margin:0; /*отступ*/
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #F3F7F7;
+  color: #222222;
+  font-family:Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  /*width: calc(100% - 100px);*/
+}
+
+.content, .header, .footer {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.footer {
+ /* position: fixed;*/
+  left: 0; bottom: 0;
+  padding: 20px;
+  font-family: Georgia, serif;
+}
+
+.footer p {
+  margin: 10px 0;
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+
+.footer a {
+  color: #606060;
+}
+
+.header, .footer {
+  background: #D6E5E5;
+}
+
+.content p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+.content table {
+  width: 100%;
+  text-align: center;
+  border-radius: 6px;
+  border-collapse: separate;
+  border-spacing: 0px;
+  padding: 10px;
+}
+
+.content table thead tr {
+  color: #ffffff;
+  font-weight: bold;
+  background: #ADC0CE;
+  padding: 10px;
+}
+
+.content table tr td {
+  border-right: 1px solid #dfdfdf;
+  padding: 10px;
+}
+
+.content table tr td a {
+  text-decoration: none;
+  color:#000000;
+}
+
+.content table tr td:last-child {
+  border-right: 0px;
+}
+
+.content table tr th {
+  border-right: 1px solid #dfdfdf;
+  padding: 10px;
+}
+
+.content table tr th:last-child {
+  border-right: 0px;
+}
+
+.content table tbody tr:nth-child(1n) {
+  background: #F3F7F7;
+}
+
+.content .m_table tbody tr:nth-child(2n) {
+  background: #e6e6e6;
+}
+
+.content table tbody tr:hover {
+  background: #ADC0CE;
+  transition-duration: 0.6s;
+}
+
+.content .m_table tbody tr:hover {
+  background: #ADC0CE;
+  transition-duration: 0.6s;
+}
+
+.menu nav {
+  display: block;
+  width: 660px;
+  margin: 0 auto 30px;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0 auto;
+  background: #D6E5E5;
+  overflow: hidden;
+  padding: 0;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu a {
+  text-decoration: none;
+  display: block;
+  font-family: Georgia, serif;
+  transition: .5s linear;
+  padding: 1em;
+  border-right: 1px solid #ADC0CE;
+  background: rgba(173, 192, 206, .3);
+  color: #606060;
+}
+
+.menu a:hover {background: #ADC0CE;}
+
+.menu a:active {background: #ADC0CE;}
+
+.buttons .add, .filter {
+  float: right;
+  padding: 10px;
+}
+
+.buttons .save, .cancel {
+  float: left;
+  padding: 10px;
+}
+
+.buttons .change, .give, .take, .deleted {
+  float: right;
+  padding: 20px;
+}
+
+a.buttons {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: #ADC0CE; /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+}
+a.buttons:hover { background: #A4A4EA; } /* при наведении курсора мышки */
+a.buttons:active { background: #ADC0FF; } /* при нажатии */
+
+.modal {
+  background: #F3F7F7;
+  left: 50%;
+  margin: -250px 0 0 -23%;
+  position: absolute;
+  top: -50%;
+  width:40%;
+  border-radius: 5px;
+  box-shadow: 0 3px 7px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 3px 7px rgba(0,0,0,.25);
+  -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.25);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* Активация модального окна в состоянии :target */
+.modal:target {
+  top: 50%;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+
+.modal header, .modal footer {
+  background:#D6E5E5;
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+}
+.modal footer {
+  height: 40px;
+  border:none;
+  border-top: 1px solid #e7e7e7;
+  border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+}
+.modal section, .modal header, .modal footer {
+  padding: 15px;
+  z-index: 200;
+}
+
+input {
+  border-radius: 3px;
+  outline: none;
+  max-width: 180px;
+}
+
+
+.menuDropDown {
+  width:300px;
+  margin:60px auto 0;
+  cursor:pointer
+}
+.title {
+  width:100%;
+  box-sizing:border-box;
+  background:#fff;
+  padding:14px;
+  border-radius:4px;
+  position:relative;
+  box-shadow:0 0 40px -10px #000;
+  color:#505050
+}
+
+.menuDropDown span {
+  float:right;
+}
+
+.dropdown {
+  width:100%;
+  background:#fff;
+  border-radius:4px;
+  box-shadow:0 0 40px -10px #000;
+  color:#505050;
+  margin-top:24px;
+  max-height:0;
+  overflow:hidden;
+  transition:all .5s
+}
+
+.down {
+  max-height:500px
+}
+.arrow {
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid #fff;
+  position:absolute;
+  right:20px;
+  bottom:-24px;
+  display:none
+}
+
+.arrow.gone {
+  display:block
+}
+
+a.menuDropDown {
+  padding:15px;
+  transition:all .1s;
+  color:#606060;
+  text-decoration: none;
+  user-select: none;
+  outline: none; /* убирать контур в Mozilla */
+  font-size:14px;
+}
+
+.menuDropDown a:hover {
+  background:#ADC0CE;
+  -webkit-transform:scale(1.05);
+  color:#ffffff;
+  box-shadow:0 0 30px -10px #000;
+}
+.moption {
+  padding: 6px;
+}
+
+img.indBook {
+  width: 80%;
+  height: 80%;
+}
+
+.right-panel-wrapper {
+  width: 1000px;
+}
+
+.mcontent-wrapper {
+  width: calc(100% - 500px);
+  padding: 0 30px;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content .cardBook {
+  width: 500px;
+  padding: 20px;
+  margin: auto;
+}
+
+a.whoButton {
+  padding: 10px;
+  transition:all .1s;
+  text-decoration: none;
+  user-select: none;
+  outline: none; /* убирать контур в Mozilla */
+}

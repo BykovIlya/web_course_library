@@ -1,0 +1,15 @@
+extends layout
+
+block title
+  | Index page
+block content
+  include ./header
+  div(class='content')
+      div(class='page-wrapper')
+          div(class='mcontent-wrapper')
+                h1 Библиотека
+                p Лабораторная работа №2
+                p Выполнил: Быков Илья, 6383
+          div(class="right-panel-wrapper")
+                img.image(src="images/book.png" class="indBook")
+  include ./footer

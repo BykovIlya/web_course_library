@@ -1,0 +1,67 @@
+extends layout
+block title
+    | List of books
+block content
+    include header
+    div(class="content")
+        aside(class="modal" id="modal")
+            header
+                h3 Добавить книгу
+            section
+                form(id="new_book", action="#", method="put")
+                    table
+                        tr
+                            td Название:
+                            td
+                                input(type="text" id="newBookName")
+                        tr
+                            td Автор:
+                            td
+                                input(id="newBookAuthor" type="text" )
+                        tr
+                            td Год выпуска:
+                            td
+                                input(id="newBookYear" type="text")
+            footer
+                div(class="buttons")
+                    div(class="cancel")
+                        a(href='#' class="buttons" id="_cancel") Отмена
+                    div(class="save")
+                        a(href='#' class="buttons" id="_save" form="new_book") Сохранить
+        div(class="buttons")
+            div(class="add")
+                a(href='#modal',class="buttons",id="_add") Добавить книгу
+            div(class="filter")
+                a(href='#',class="buttons",id="_filter") Показать 'В наличии'
+        div( style="clear: both")
+        table(class="m_table" id ="m_table")
+            thead
+                tr
+                    th(datatype="title_name") Название
+                    th(datatype="title_author") Автор
+                    th(datatype="title_date") Год выпуска
+                    th(datatype="title_instock") В наличии / Дата возврата
+                    th(datatype="title_delay") Просрочка
+            tbody#mbody
+                for book in books
+                    tr
+                        td
+                            a(href="/book/"+book["id"])=book["name"]
+                        td #{book["author"]}
+                        td #{book["date"]}
+                        if (book["in_stock"] === true)
+                            td В наличии
+                        else
+                            if (book["return_date"] !== null)
+                            -  data = new Date(book["return_date"])
+                            -  data_day = data.getDate()
+                            -  data_month = data.getMonth() + 1
+                            -  data_year = data.getFullYear()
+                            td #{data_day}-#{data_month}-#{data_year}
+                        if (new Date(book["return_date"]) < new Date() && book["return_date"] != null)
+                            td Просрочена
+                        else
+                            td -
+            script
+                include ../public/javascripts/listOfBooks.js
+    include footer
