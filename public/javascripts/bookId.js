@@ -108,6 +108,6 @@ function addRequest(method, body, callback,type) {
         }
     };
     xhttp.open(method, type, true);
-    xhttp.setRequestHeader("Content-Type","application/json");
-    xhttp.send(JSON.stringify(body,null,2));
+    //xhttp.setRequestHeader("Content-Type","application/json");
+    xhttp.send(/*JSON.stringify(body,null,2)*/body);
 }

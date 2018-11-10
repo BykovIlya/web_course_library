@@ -33,14 +33,26 @@ router.get('/book/:id([a-zA-Z0-9]{1,})', (req, res, next) => {
     next();
 });
 
-router.put('/ajax', (req, res) => {
-    req.body.id = shortid.generate();
-    console.log(req.body);
+router.get('/addBook/name=:name([a-zA-Z0-9]{1,})&author=:author([a-zA-Z0-9]{1,})&date=:date([a-zA-Z0-9]{1,})', (req, res,next) => {
+    var newBook = {};
+    newBook.id = shortid.generate();
+   const name = req.params.name;
+   const author = req.params.author;
+   const date = req.params.date;
+   newBook.master = null;
+   newBook.name = name;
+   newBook.author = author;
+   newBook.date = date;
+   newBook.in_stock = true;
+   newBook.return_date = null;
+   console.log("WORK");
+   console.log(newBook);
     db.get('arr')
-        .push(req.body)
+        .push(newBook)
         .write();
-    books.arr.push(req.body);
-    res.status(200);
+    books.arr.push(newBook);
+    res.render('listOfBooks', {title: 'Список книг', books: books.arr});
+    next();
 });
 
 router.put('/ajax2',(req,res) => {

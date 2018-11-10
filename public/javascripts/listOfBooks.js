@@ -132,7 +132,7 @@ function addBook() {
         alert("Ошибка! Не все поля заполнены");
         return;
     }
-    addRequest("PUT", {
+    var newBook = {
         id: null,
         master: null,
         name: name.value,
@@ -140,21 +140,27 @@ function addBook() {
         date: year.value,
         in_stock: true,
         return_date: null
-    }, cb=>{});
+    }
+    addRequest("get", newBook, cb=>{});
+//    getRequest("get", )
     setTimeout('document.location.href="/listOfBooks";',200)
 }
 
 function addRequest(method, body, callback) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        //if (this.readyState === 4 && this.status === 200) {
+        if (this.readyState === 4 && this.status === 200) {
             callback(JSON.parse(this.responseText));
-       // }
-       // if(this.readyState===4 && this.status === 400) {
-       //     alert(JSON.parse(this.responseText).message);
-       // }
+
+       }
+        if(this.readyState===4 && this.status === 400) {
+            alert(JSON.parse(this.responseText).message);
+        }
     };
-    xhttp.open(method, "/ajax/", true);
-    xhttp.setRequestHeader("Content-Type","application/json");
-    xhttp.send(JSON.stringify(body,null,2));
+    //var url = "/addBook?name="+body.name+"&author="+body.author + "&date="+body.date
+    var url = "/addBook/name="+body.name+"&author="+body.author+"&date="+body.date
+    //alert(url)
+    xhttp.open(method, url, true);
+   // xhttp.setRequestHeader("Content-Type","application/json");
+    xhttp.send(body);
 }

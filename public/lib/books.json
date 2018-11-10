@@ -92,6 +92,15 @@
       "date": "1987",
       "in_stock": true,
       "return_date": null
+    },
+    {
+      "id": "JSqh_aGEq",
+      "master": null,
+      "name": "1",
+      "author": "2",
+      "date": "4",
+      "in_stock": true,
+      "return_date": null
     }
   ]
 }
