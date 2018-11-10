@@ -25,8 +25,8 @@
 
 ### Список книг
 
-[Список книг](https://github.com/BykovIlya/web_course_library/blob/master/lab2/Screenshot%20from%202018-11-09%2015-28-45.png)
+![Список книг](https://github.com/BykovIlya/web_course_library/blob/master/lab2/Screenshot%20from%202018-11-09%2015-28-45.png)
 
 ### Карточка книги
 
-[кк](https://github.com/BykovIlya/web_course_library/blob/master/lab2/Screenshot%20from%202018-11-09%2015-29-01.png)
+![кк](https://github.com/BykovIlya/web_course_library/blob/master/lab2/Screenshot%20from%202018-11-09%2015-29-01.png)
